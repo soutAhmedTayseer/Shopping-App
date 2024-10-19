@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components.dart';
+import 'package:shop_app/dio/cache_helper.dart';
 import 'package:shop_app/login/login_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -22,12 +23,23 @@ var boardController = PageController();
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   List<BoardingModel> boarding = [
-    BoardingModel(image: 'assets/images/1.png', title: '1', body: '1'),
-    BoardingModel(image: 'assets/images/2.png', title: '2', body: '2'),
-    BoardingModel(image: 'assets/images/3.png', title: '3', body: '3')
+    BoardingModel(image: 'assets/images/1.png', title: 'Welcome', body: 'Explore our shop with ease.'),
+    BoardingModel(image: 'assets/images/2.png', title: 'Shop', body: 'Browse and buy the best products.'),
+    BoardingModel(image: 'assets/images/3.png', title: 'Delivery', body: 'Fast and reliable delivery to your doorstep.'),
   ];
 
   bool isLast = false;
+
+  void submit() {
+    CacheHelper.saveData(
+      key: 'onBoarding',
+      value: true,
+    ).then((value) {
+      if (value) {
+        navigateandfinish(context, const LoginScreen());
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +48,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              navigateandfinish(context, LoginScreen());
+              submit();  // Skip the onboarding and store the flag
             },
-            child: const Text('Skip',style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 20),),
+            child: const Text(
+              'Skip',
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
           ),
         ],
       ),
@@ -84,7 +102,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   FloatingActionButton(
                     onPressed: () {
                       if (isLast) {
-                        navigateandfinish(context, LoginScreen());
+                        submit();  // Complete onboarding and navigate to login
                       } else {
                         boardController.nextPage(
                           duration: const Duration(milliseconds: 750),

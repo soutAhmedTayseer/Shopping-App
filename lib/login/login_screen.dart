@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/components.dart';
+import 'package:shop_app/shop/shop_layout.dart';
 import 'package:shop_app/login/cubit_login.dart';
 import 'package:shop_app/login/states_login.dart';
 import 'package:shop_app/register_screen.dart';
@@ -118,6 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               if (_formKey.currentState!.validate()) {
                                 // Handle login logic here
                                 // Example: print('Email: ${_emailController.text}, Password: ${_passwordController.text}');
+                                navigateandfinish(context, ShopLayout());
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text('Logging in...'),

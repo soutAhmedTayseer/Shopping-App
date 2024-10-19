@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/dio/cache_helper.dart';
+import 'package:shop_app/login/login_screen.dart';
 import 'package:shop_app/on_boarding_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
+
+  bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
+
+  Widget startWidget;
+
+  if (onBoarding != null && onBoarding == true) {
+    startWidget = const LoginScreen();  // Navigate to login if onboarding is done
+  } else {
+    startWidget = const OnBoardingScreen();  // Show onboarding if not done
+  }
+
+  runApp(MyApp(startWidget: startWidget));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Widget startWidget;
 
-  // This widget is the root of your application.
+  const MyApp({Key? key, required this.startWidget}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      home: startWidget,
     );
   }
 }
