@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/dio/cache_helper.dart';
-import 'package:shop_app/login/login_screen.dart';
+import 'package:shop_app/shop/login_screen.dart';
 import 'package:shop_app/on_boarding_screen.dart';
 
 void main() async {

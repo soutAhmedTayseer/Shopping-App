@@ -4,7 +4,7 @@ import 'package:shop_app/components.dart';
 import 'package:shop_app/shop/shop_layout.dart';
 import 'package:shop_app/login/cubit_login.dart';
 import 'package:shop_app/login/states_login.dart';
-import 'package:shop_app/register_screen.dart';
+import 'package:shop_app/shop/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

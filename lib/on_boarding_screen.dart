@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components.dart';
 import 'package:shop_app/dio/cache_helper.dart';
-import 'package:shop_app/login/login_screen.dart';
+import 'package:shop_app/shop/login_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BoardingModel {
