@@ -1,12 +1,23 @@
+
+
+import 'package:shopapplication/models/login_model.dart';
+
 abstract class ShopLoginStates {}
 
-class ShopLoginInitialState extends ShopLoginStates {}
+class ShopLoginIntialState extends ShopLoginStates{}
 
-class ShopLoginLoadingState extends ShopLoginStates {}
+class ShopLoginSuccessState extends ShopLoginStates{
+  final ShopLoginModel loginmodel;
 
-class ShopLoginSuccessState extends ShopLoginStates {}
+  ShopLoginSuccessState(this.loginmodel);
+}
 
-class ShopLoginErrorState extends ShopLoginStates {
+class ShopLoginLoadingState extends ShopLoginStates{}
+
+class ShopLoginErrorState extends ShopLoginStates{
   final String error;
+
   ShopLoginErrorState(this.error);
 }
+
+
