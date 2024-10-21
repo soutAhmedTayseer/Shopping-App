@@ -1,15 +1,15 @@
-const LOGIN = 'login';
+const LOGIN='login';
 
-const HOME = 'home';
+const HOME='home';
 
-const FAVORITES = 'favorites';
+const FAVORITES ='favorites';
 
-const CATEGORIES = 'categories';
+const CATEGORIES ='categories';
 
-const PROFILE = 'profile';
+const PROFILE ='profile';
 
-const UPDATE_PROFILE = 'update-profile';
+const  UPDATE_PROFILE ='update-profile';
 
-const REGISTER = 'register';
+const REGISTER='register';
 
 const SEARCH = 'products/search';
