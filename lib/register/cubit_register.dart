@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/dio/dio_helper.dart';
-import 'package:shop_app/dio/end_points.dart';
-import 'package:shop_app/register/states_register.dart';
-
+import 'package:shopapplication/register/states_register.dart';
+import '../dio/dio_helper.dart';
+import '../dio/end_points.dart';
 import '../models/login_model.dart';
 
 
